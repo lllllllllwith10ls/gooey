@@ -32,7 +32,7 @@ function update() {
 	} else {
 		get("escape").style.display = "none";
 	}
-	get("intOnEscape").innerHTML = intOnEscape();
+	get("intOnEscape").innerHTML = Math.floor(intOnEscape());
 	if(player.escapes > 0) {
 		get("overworldTab").style.display = "";
 		get("internetTab").style.display = "";
@@ -73,6 +73,7 @@ function escape() {
 	player.nanites = 1;
 	player.naniteCost = 10;
 	player.escapes++;
+	player.int += intOnEscape();
 }
 function start() {
 	setInterval(gameLoop, 33);
