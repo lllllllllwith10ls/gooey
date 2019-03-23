@@ -6,7 +6,7 @@ function getDefaultSave() {
 		matter: 0,
 		nanites: 1,
 		naniteCost: 10,
-		lastTick: 0,
+		lastTick: new Date().getTime(),
 	}
 }
 let player = getDefaultSave();
@@ -19,6 +19,7 @@ function gameLoop() {
 	let diff = (newTime - player.lastTick) / 1000;
 	player.lastTick = newTime;
 	produce(diff);
+	update();
 }
 function update() {
 	get("matter").innerHTML = Math.floor(player.matter);
@@ -26,8 +27,16 @@ function update() {
 	get("nanites").innerHTML = Math.floor(player.nanites);
 }
 function buyNanite() {
-	player.nanites++;
-	player.naniteCost *= 1.1;
+	if(player.matter >= player.naniteCost) {
+		player.nanites++;
+		player.matter -= player.naniteCost;
+		player.naniteCost *= 1.1;
+	}
+}
+function buyMaxNanite() {
+	while(player.matter >= player.naniteCost) {
+		buyNanite();
+	}
 }
 function start() {
 	setInterval(gameLoop, 33);
