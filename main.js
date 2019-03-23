@@ -33,6 +33,7 @@ function update() {
 		get("escape").style.display = "none";
 	}
 	get("intOnEscape").innerHTML = Math.floor(intOnEscape());
+	get("int").innerHTML = Math.floor(player.int);
 	if(player.escapes > 0) {
 		get("overworldTab").style.display = "";
 		get("internetTab").style.display = "";
