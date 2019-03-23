@@ -29,3 +29,6 @@ function buyNanite() {
 	player.nanites++;
 	player.naniteCost *= 1.1;
 }
+function start() {
+	setInterval(gameLoop, 33);
+}
