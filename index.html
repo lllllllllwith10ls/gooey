@@ -4,21 +4,50 @@
 		<script src="main.js"></script>
 	</head>
 	<body onload="start()">
-		<p>You have <span id="matter">0</span> matter<p>
-		<table style="width:100%">
-			<tbody id="parent">
-				<tr id="row1">
-					<td>
-						Nanites (<span id="nanites">1</span>)
-					</td>
-					<td>
-						<button id="buy1" onclick="buyNanite()" align="right" class="button">Cost: <span id="naniteCost">10</span> matter</button>
-					</td>
-					<td align="right">
-						<button id="buy1Max" onclick="buyMaxNanite()" align="right" class="button">Buy Max</button>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<button id="overworldTab" onclick="showTab('overworld')">Overworld</button>
+		<button id="internetTab" onclick="showTab('internet')">Internet</button>
+		<div id="overworld" class="tab">
+			<p>You have <span id="matter">0</span> matter<p>
+			<table style="width:100%">
+				<tbody id="parent">
+					<tr>
+						<td>
+							Nanites (<span id="nanites">1</span>)
+						</td>
+						<td>
+							<button id="buy1" onclick="buyNanite()" align="right">Cost: <span id="naniteCost">10</span> matter</button>
+						</td>
+						<td align="right">
+							<button id="buyMax" onclick="buyMaxNanite()" align="right">Buy Max</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<button style="display: none" onclick="escape()" align="middle" id="escape">Escape to the internet<br/> Gain <span id="intOnEscape">0</span> intelligence</button>
+		</div>
+		<div id="internet" class="tab">
+			<p>You have <span id="int">0</span> intelligence<p>
+			<table style="width:100%">
+				<tbody>
+					<tr>
+						<td>
+							<button id="upgrade11" onclick="buyUpgrade('11')">TBD</button>
+						</td>
+						<td align="right">
+							<button id="upgrade12" onclick="buyUpgrade('21')">TBD</button>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button id="upgrade11" onclick="buyUpgrade('21')">TBD</button>
+						</td>
+						<td align="right">
+							<button id="upgrade12" onclick="buyUpgrade('22)">TBD</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<button style="display: none" onclick="escape()" align="middle" id="escape">Escape to the internet<br/> Gain <span id="intOnEscape">0</span> intelligence</button>
+		</div>
 	</body>
 </html>
